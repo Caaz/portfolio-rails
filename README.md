@@ -1,3 +1,5 @@
 # README
 
-BADA BING BADA BOOM, PORTFOLIO TIME.
+## Getting Started
+Run the project with
+`docker compose up`

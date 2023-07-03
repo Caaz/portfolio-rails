@@ -20,5 +20,6 @@ module App
     # config.eager_load_paths << Rails.root.join("extras")
     config.cache_store = :redis_store, ENV['CACHE_URL'], { namespace: 'portfolio::cache' }
     config.active_job.queue_adapter = :sidekiq
+    config.assets.paths << Rails.root.join("node_modules")
   end
 end
