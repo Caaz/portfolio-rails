@@ -10,15 +10,16 @@ html
     == javascript_include_tag 'application'
     meta name="viewport" content="width=device-width, initial-scale=1"
   body
-    nav#navbar.uk-navbar-container(uk-navbar)
-      .uk-navbar-left.uk-margin-left
-        ul.uk-navbar-nav
-          li: a href="mailto:daniel@caaz.me"
-            span daniel@caaz.me
-      .uk-navbar-right.uk-margin-right
-        ul.uk-navbar-nav
-          li: a href="#" Blog
-          li: a href="#" Projects
-          li: a href="#" Contact
-    main
+    nav#navbar
+      nav.uk-container.uk-container-xlarge.uk-navbar-container(uk-navbar)
+        .uk-navbar-left.uk-margin-left
+          ul.uk-navbar-nav
+            li: a href="mailto:daniel@caaz.me"
+              span daniel@caaz.me
+        .uk-navbar-right.uk-margin-right
+          ul.uk-navbar-nav
+            li: a href="#" Blog
+            li: a href="#" Projects
+            li: a href="#" Contact
+    main.uk-container.uk-container-xlarge
       == yield
