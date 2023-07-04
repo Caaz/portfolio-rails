@@ -3,7 +3,22 @@ html
   head
     title Portfolio
     meta name="author" content="Daniel Cavazos"
+    link rel="preconnect" href="https://fonts.googleapis.com"
+    link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
+    link href="https://fonts.googleapis.com/css2?family=Kanit:wght@700&display=swap" rel="stylesheet"
     == stylesheet_link_tag "application", media: "all"
     == javascript_include_tag 'application'
+    meta name="viewport" content="width=device-width, initial-scale=1"
   body
-    == yield
+    nav#navbar.uk-navbar-container(uk-navbar)
+      .uk-navbar-left.uk-margin-left
+        ul.uk-navbar-nav
+          li: a href="mailto:daniel@caaz.me"
+            span daniel@caaz.me
+      .uk-navbar-right.uk-margin-right
+        ul.uk-navbar-nav
+          li: a href="#" Blog
+          li: a href="#" Projects
+          li: a href="#" Contact
+    main
+      == yield

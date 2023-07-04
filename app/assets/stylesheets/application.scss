@@ -1,2 +1,24 @@
+
+$navbar-nav-item-height: 40px;
+$global-primary-background: #6527BE;
+$global-font-family: 'Kanit', sans-serif;
 @import "../../../node_modules/uikit/src/scss/variables-theme.scss";
+@import "../../../node_modules/uikit/src/scss/mixins-theme.scss";
 @import "../../../node_modules/uikit/src/scss/uikit-theme.scss";
+
+#navbar {
+    background-color:$background-primary-background;
+    * {
+        color:white;
+    }
+}
+
+#hero {
+    h1 {
+        line-height:.7;
+        margin:0;
+    }
+}
+#hero-canvas {
+    min-height:20vh;
+}
