@@ -5,3 +5,5 @@ pin "uikit", to: "https://ga.jspm.io/npm:uikit@3.16.22/dist/js/uikit.js"
 
 pin "application/home"
 pin "application/notifier"
+pin "trix"
+pin "@rails/actiontext", to: "actiontext.js"

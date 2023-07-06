@@ -1,11 +1,10 @@
 
 $navbar-nav-item-height: 40px;
 $global-primary-background: #6527BE;
-$global-font-family: 'Kanit', sans-serif;
 @import "../../../node_modules/uikit/src/scss/variables-theme.scss";
 @import "../../../node_modules/uikit/src/scss/mixins-theme.scss";
 @import "../../../node_modules/uikit/src/scss/uikit-theme.scss";
-
+//= require "actiontext.css"
 #navbar {
     background-color:$background-primary-background;
     nav { background-color:transparent; }
@@ -16,6 +15,7 @@ $global-font-family: 'Kanit', sans-serif;
 
 #hero {
     h1 {
+        font-family: 'Kanit', sans-serif;
         line-height:.7;
         margin:0;
     }

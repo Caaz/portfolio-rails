@@ -3,3 +3,5 @@
 import "uikit"
 import "application/home"
 import "application/notifier"
+import "trix"
+import "@rails/actiontext"
