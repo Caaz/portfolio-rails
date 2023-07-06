@@ -3,7 +3,7 @@ class PostsController < ApplicationController
 
   # GET /posts
   def index
-    @posts = Post.all
+    @posts = Post.select(:id, :title).last(5)
   end
 
   # GET /posts/1

@@ -1,10 +1,12 @@
+//= require "actiontext.css"
 
 $navbar-nav-item-height: 40px;
 $global-primary-background: #6527BE;
 @import "../../../node_modules/uikit/src/scss/variables-theme.scss";
 @import "../../../node_modules/uikit/src/scss/mixins-theme.scss";
 @import "../../../node_modules/uikit/src/scss/uikit-theme.scss";
-//= require "actiontext.css"
+
+
 #navbar {
     background-color:$background-primary-background;
     nav { background-color:transparent; }

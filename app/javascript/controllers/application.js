@@ -1,4 +1,4 @@
-
+import UIkit from "uikit";
 window.addEventListener("load", (event) => {
     // Set up Canvas
     const canvas = document.getElementById("hero-canvas");
@@ -15,5 +15,13 @@ window.addEventListener("load", (event) => {
     }, 1000 / 30);
     // Randomize tagline
     const taglines = document.querySelectorAll("#hero p");
-    taglines[Math.floor(Math.random()*taglines.length)].className = ""
+    taglines[Math.floor(Math.random()*taglines.length)].className = "";
+    // Setup notifications
+    ["alert", "notice"].forEach(alert => {
+        var alert = document.getElementById(alert);
+        if(alert.textContent.length > 0)
+            UIkit.notification({
+                message: alert.textContent
+            });
+    })
 });
