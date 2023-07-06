@@ -28,7 +28,7 @@ gem "sprockets-rails"
 # gem "jbuilder"
 
 # Use Redis adapter to run Action Cable in production
-# gem "redis", "~> 4.0"
+gem "redis", "~> 4.0"
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
@@ -76,3 +76,5 @@ gem 'pg', '~> 1.5.3'
 gem 'sidekiq', '~> 7.1.2'
 gem 'redis-rails', '~> 5.0.2'
 gem "slim-rails", '~> 3.6.2'
+gem "devise", "~> 4.9"
+gem "importmap-rails", "~> 1.2"

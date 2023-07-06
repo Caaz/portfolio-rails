@@ -7,19 +7,27 @@ html
     link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
     link href="https://fonts.googleapis.com/css2?family=Kanit:wght@700&display=swap" rel="stylesheet"
     == stylesheet_link_tag "application", media: "all"
-    == javascript_include_tag 'application'
+    == javascript_importmap_tags
     meta name="viewport" content="width=device-width, initial-scale=1"
   body
+    #notice.uk-hidden==notice
+    #alert.uk-hidden==alert
     nav#navbar
       nav.uk-container.uk-container-xlarge.uk-navbar-container(uk-navbar)
         .uk-navbar-left.uk-margin-left
           ul.uk-navbar-nav
-            li: a href="mailto:daniel@caaz.me"
-              span daniel@caaz.me
+            li: a href="/"
+              span Daniel Cavazos
         .uk-navbar-right.uk-margin-right
           ul.uk-navbar-nav
             li: a href="#" Blog
             li: a href="#" Projects
             li: a href="#" Contact
-    main.uk-container.uk-container-xlarge
+    main.uk-container.uk-container-xlarge(uk-height-viewport="expand:true")
       == yield
+    footer.uk-background-muted.uk-expand
+      .uk-container.uk-container-xlarge.uk-padding.uk-link-muted
+        - if admin_signed_in?
+          = link_to "Logout", destroy_admin_session_path
+        - else 
+          = link_to('Login', new_admin_session_path)
