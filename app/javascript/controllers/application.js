@@ -1,4 +1,7 @@
 import UIkit from "uikit";
+import Icons from "uikit-icons"
+UIkit.use(Icons);
+
 window.addEventListener("load", (event) => {
     // Set up Canvas
     const canvas = document.getElementById("hero-canvas");

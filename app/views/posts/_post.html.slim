@@ -1,4 +1,12 @@
-div id="#{dom_id post}"
-  p
-    strong Title:
-    =< post.title
+
+
+article.uk-card.uk-card-default id="#{dom_id post}"
+  .uk-card-header
+    h1.uk-card-title.uk-margin-remove= post.title
+    .uk-flex.uk-flex-between
+      = link_to post.published, post, class: admin_signed_in? ? post.is_published? ? "uk-text-success":"uk-text-danger":""
+      - if admin_signed_in?
+        .uk-button-group
+          = link_to "", edit_post_path(post), class: "uk-button uk-button-small uk-button-default", "uk-icon": "file-edit"
+          = button_to "", post, method: :delete, class: "uk-button uk-button-small uk-button-danger", "uk-icon": "close"
+  .uk-card-body= post.content

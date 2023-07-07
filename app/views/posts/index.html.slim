@@ -1,11 +1,6 @@
-p style="color: green" = notice
-
-h1 Posts
-
-#posts
-  - @posts.each do |post|
-    == render post
-    p
-      = link_to "Show this post", post
-
-= link_to "New post", new_post_path
+- if @latest_post
+  == render @latest_post
+- if @posts
+  .uk-margin.uk-grid class="uk-child-width-1-3@m"
+    - @posts.each do |post|
+      == render partial: "post_small", locals: {post: post}

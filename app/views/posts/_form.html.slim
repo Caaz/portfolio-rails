@@ -5,18 +5,26 @@
       ul
         - @post.errors.each do |error|
           li = error.full_message
+  .uk-grid.uk-child-width-1-2
+    div
+      = form.label :title, class: "uk-display-block"
+      = form.text_field :title, class: "uk-input"
+    div
+      = form.label :published, class: "uk-display-block"
+      = form.datetime_field :published, class: "uk-input"
+    div
+      = form.label :title, class: "uk-display-block"
+      = form.text_field :hook, class: "uk-input"
+    div
+      = form.label :project, class: "uk-display-block"
+      = form.check_box :project, class: "uk-checkbox"
 
-  div
-    = form.label :title, style: "display: block"
-    = form.text_field :title
-
-  div
-    = form.label :content, style: "display: block"
+  .uk-padding-small.uk-padding-remove-left.uk-padding-remove-right
     = form.rich_text_area :content, class: "trix-content uk-textarea"
 
-  div
-    = form.label :published, style: "display: block"
-    = form.datetime_field :published
 
-  div
-    = form.submit
+  .uk-button-group
+    = form.submit class: "uk-button uk-button-primary"
+    - if @post.id
+      = link_to "Show this post", @post, class: "uk-button uk-button-default"
+    = link_to "Back to posts", posts_path, class: "uk-button uk-button-default"
