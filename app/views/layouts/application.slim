@@ -19,11 +19,11 @@ html
           ul.uk-navbar-nav
             li: a href="/"
               span Daniel Cavazos
+            - if admin_signed_in?
+              li(style=" padding-top:1px")= link_to "", new_post_path, "uk-icon":"icon:plus-circle; ratio:.8"
         .uk-navbar-right.uk-margin-right
           ul.uk-navbar-nav
             li= link_to "Blog", posts_path
-            - if admin_signed_in?
-              li(style="margin-left:-27px; padding-top:1px")= link_to "", new_post_path, "uk-icon":"icon:plus-circle; ratio:.8"
             li= link_to "Projects", projects_path
             li: a href="#" Contact
     main.uk-container.uk-container-xlarge.uk-margin-top(uk-height-viewport="expand:true")

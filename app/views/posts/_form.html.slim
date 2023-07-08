@@ -13,8 +13,13 @@
       = form.label :published, class: "uk-display-block"
       = form.datetime_field :published, class: "uk-input"
     div
-      = form.label :title, class: "uk-display-block"
+      = form.label :hook, class: "uk-display-block"
       = form.text_field :hook, class: "uk-input"
+    div
+      = form.label :hero_image, class: "uk-display-block"
+      .js-upload(uk-form-custom)
+        = form.file_field :hero_image
+        button.uk-button.uk-button-default type="button" tabindex="-1" Select
     div
       = form.label :project, class: "uk-display-block"
       = form.check_box :project, class: "uk-checkbox"

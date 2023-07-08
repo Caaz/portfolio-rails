@@ -1,19 +1,14 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: %i[ show edit update destroy ]
+  before_action :set_post, only: %i[ show edit update destroy index ]
   before_action :authenticate_admin!, only: %i[ new edit update destroy create ]
   # GET /posts
   def index
-    @latest_post = Post.order(:published)
-    unless admin_signed_in?
-      @latest_post = @latest_post.where(published: ..(DateTime.now()), project:false).order(:published)
-    end
-    @latest_post = @latest_post.last
-    if @latest_post
-      @posts = Post.select(:id, :title, :hook, :project).where.not(id:@latest_post.id).where(project:false)
+    if @post
+      @posts = Post.select(:id, :title, :hook, :project).where.not(id:@post.id).where(project:false)
       unless admin_signed_in?
         @posts = @posts.where(published: ..(DateTime.now()))
       end
-      @posts = @posts.last(5)
+      @posts = @posts.last(6)
     end
   end
 
@@ -59,11 +54,19 @@ class PostsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post
+      unless params[:id]
+        @post = Post.with_rich_text_content_and_embeds.order(:published).where(project:false)
+        unless admin_signed_in?
+          @post = @post.where(published: ..(DateTime.now()))
+        end
+        @post = @post.last
+        return
+      end
       @post = Post.with_rich_text_content_and_embeds.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
     def post_params
-      params.require(:post).permit( :title, :content, :published, :hook, :project)
+      params.require(:post).permit( :title, :content, :published, :hook, :project, :hero_image)
     end
 end
