@@ -21,11 +21,12 @@ html
               span Daniel Cavazos
             - if admin_signed_in?
               li(style=" padding-top:1px")= link_to "", new_post_path, "uk-icon":"icon:plus-circle; ratio:.8"
+              li(style=" padding-top:1px")= link_to "", contact_requests_path, "uk-icon":"icon:mail; ratio:.8"
         .uk-navbar-right.uk-margin-right
           ul.uk-navbar-nav
             li= link_to "Blog", posts_path
             li= link_to "Projects", projects_path
-            li: a href="#" Contact
+            li= link_to "Contact", new_contact_request_path
     main.uk-container.uk-container-xlarge.uk-margin-top(uk-height-viewport="expand:true")
       == yield
     footer.uk-background-muted.uk-expand.uk-margin-top
