@@ -1,4 +1,4 @@
-sidekiq_config = { url: ENV['JOB_WORKER_URL'] }
+sidekiq_config = { url: ENV['DEVELOPMENT_JOB_WORKER_URL'] }
 
 Sidekiq.configure_server do |config|
   config.redis = sidekiq_config

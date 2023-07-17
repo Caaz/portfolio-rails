@@ -34,7 +34,7 @@ Rails.application.configure do
   end
 
   # Store uploaded files on the local file system (see config/storage.yml for options).
-  config.active_storage.service = :local
+  config.active_storage.service = :google
 
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
@@ -70,4 +70,6 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   config.log_level = :debug
   config.web_console.permissions = '10.0.2.2'
+  config.active_job.queue_adapter = :sidekiq
+  # config.assets.compile = false
 end

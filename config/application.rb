@@ -5,6 +5,10 @@ require "rails/all"
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
+key_file = File.join "config", "master.key"
+if File.exist? key_file
+  ENV["RAILS_MASTER_KEY"] = File.read key_file
+end
 
 module App
   class Application < Rails::Application
@@ -18,8 +22,7 @@ module App
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
-    config.cache_store = :redis_store, ENV['CACHE_URL'], { namespace: 'portfolio::cache' }
-    config.active_job.queue_adapter = :sidekiq
+    config.cache_store = :redis_store, ENV['DEVELOPMENT_CACHE_URL'], { namespace: 'portfolio::cache' }
     config.assets.paths << Rails.root.join("node_modules")
   end
 end

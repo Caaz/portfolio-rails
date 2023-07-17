@@ -1,8 +1,10 @@
 # Heavily inspired by GitLab:
 # https://github.com/gitlabhq/gitlabhq/blob/master/config/unicorn.rb.example
+require 'dotenv'
+Dotenv.load ".env"
 
-worker_processes ENV['WORKER_PROCESSES'].to_i
-listen ENV['LISTEN_ON']
+worker_processes ENV['WORKER_PROCESSES'].to_i || 1
+listen 8080
 timeout 3600 if ENV.fetch("RAILS_ENV", "development") == "development"
 preload_app true
 GC.respond_to?(:copy_on_write_friendly=) && GC.copy_on_write_friendly = true

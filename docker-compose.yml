@@ -29,8 +29,8 @@ services:
       - redis
     ports:
       - '8010:8010'
-    env_file:
-      - .env
+    environment:
+      - RAILS_ENV=development
 
   sidekiq:
     build:
@@ -39,8 +39,6 @@ services:
     links:
       - postgres
       - redis
-    env_file:
-      - .env
 
   nginx:
     build:
