@@ -1,0 +1,8 @@
+[
+    {
+      "origin": ["https://caaz.me"],
+      "responseHeader": ["Origin", "Content-Type", "Content-Md5", "Content-Disposition"],
+      "method": ["PUT", "GET", "HEAD", "DELETE", "OPTIONS"],
+      "maxAgeSeconds": 3600
+    }
+  ]
