@@ -13,6 +13,9 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg -o /root/yarn-pubkey.gpg &
 ENV INSTALL_PATH /app
 RUN mkdir -p $INSTALL_PATH
 
+ARG RAILS_MASTER_KEY
+ENV RAILS_MASTER_KEY=$RAILS_MASTER_KEY
+
 WORKDIR $INSTALL_PATH
 COPY . .
 
