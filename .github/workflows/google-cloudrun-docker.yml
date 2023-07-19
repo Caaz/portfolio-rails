@@ -54,6 +54,8 @@ env:
   GAR_LOCATION: us-west1
   SERVICE: portfolio-portfolio
   REGION: us-central1
+  RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
+  STORAGE_CREDENTIALS : ${{ secrets.STORAGE_CREDENTIALS }}
 
 jobs:
   deploy:

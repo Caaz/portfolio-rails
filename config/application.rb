@@ -22,7 +22,7 @@ module App
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
-    config.cache_store = :redis_store, ENV['DEVELOPMENT_CACHE_URL'], { namespace: 'portfolio::cache' }
+    config.cache_store = :redis_store, ENV['CACHE_URL'], { namespace: 'portfolio::cache' }
     config.assets.paths << Rails.root.join("node_modules")
   end
 end

@@ -3,7 +3,7 @@
 require 'dotenv'
 Dotenv.load ".env"
 
-worker_processes ENV['WORKER_PROCESSES'].to_i || 1
+worker_processes 1
 listen 8080
 timeout 3600 if ENV.fetch("RAILS_ENV", "development") == "development"
 preload_app true

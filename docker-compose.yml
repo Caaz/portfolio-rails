@@ -31,6 +31,9 @@ services:
       - '8010:8010'
     environment:
       - RAILS_ENV=development
+      - DATABASE_URL=postgresql://portfolio:test_db_password@postgres:5432/portfolio?encoding=utf8&pool=5&timeout=5000\
+      - CACHE_URL=redis://redis:6379/0
+      - JOB_WORKER_URL=redis://redis:6379/0
 
   sidekiq:
     build:
