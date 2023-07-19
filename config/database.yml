@@ -14,5 +14,5 @@ production:
   timeout: 5000
   database: <%= ENV["DATABASE_NAME"] %>
   username: <%= ENV["DATABASE_USERNAME"] %>
-  password: <%= Rails.application.credentials.gcp[:db_password] %>
+  password: <%= Rails.application.credentials.gcp.fetch(:db_passsword, "") %>
   host: "<%= ENV.fetch("DATABASE_SOCKET_DIR") { '/cloudsql' } %>/<%= ENV["CLOUD_SQL_CONNECTION_NAME"] %>"
