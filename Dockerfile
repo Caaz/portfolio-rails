@@ -19,7 +19,7 @@ COPY . .
 RUN bundle install && \
     yarn install
 
-RUN bundle exec rake assets:precompile
+RUN RAILS_ENV=production bundle exec rake assets:precompile
 
 # Start server
 EXPOSE 8080
