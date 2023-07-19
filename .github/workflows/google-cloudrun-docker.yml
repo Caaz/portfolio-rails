@@ -86,9 +86,16 @@ jobs:
 
       # END - Docker auth and build
 
+      - name: Google Auth
+        id: auth
+        uses: 'google-github-actions/auth@v0'
+        with:
+          credentials_json: '${{ secrets.GCP_CREDENTIALS }}'
+          token_format: 'access_token'
+          
       - name: Deploy to Cloud Run
         id: deploy
-        uses: google-github-actions/deploy-cloudrun@v0
+        uses: google-github-actions/deploy-cloudrun@v1
         with:
           service: ${{ env.SERVICE }}
           region: ${{ env.REGION }}
