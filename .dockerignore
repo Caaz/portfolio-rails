@@ -1,7 +1,7 @@
 
 .git
 .dockerignore
-/config/master.key
+
 /node_modules/
 /vendor/bundle/
 /tmp/

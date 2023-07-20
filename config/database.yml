@@ -1,18 +1,17 @@
-development:
-  url: <%= ENV.fetch("DATABASE_URL","?").gsub('?', '_development?') %>
-
-test:
-  url: <%= ENV.fetch("DATABASE_URL","?").gsub('?', '_test?') %>
-
-staging:
-  url: <%= ENV.fetch("DATABASE_URL","?").gsub('?', '_staging?') %>
-
-production:
+postgresql: &default
   adapter: postgresql
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
   database: <%= ENV["DATABASE_NAME"] %>
   username: <%= ENV["DATABASE_USERNAME"] %>
+
+development:
+  <<: *default
+  password: <%= ENV["DATABASE_PASSWORD"] %>
+  host: "<%= ENV["DATABASE_HOST"] %>"
+
+production:
+  <<: *default
   password: <%= Rails.application.credentials.fetch(:gcp,{}).fetch(:db_password,"") %>
   host: "<%= ENV.fetch("DATABASE_SOCKET_DIR") { '/cloudsql' } %>/<%= ENV["CLOUD_SQL_CONNECTION_NAME"] %>"
