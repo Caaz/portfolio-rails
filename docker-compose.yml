@@ -23,7 +23,7 @@ services:
     build:
       context: .
     volumes:
-      - .:/opt/app
+      - .:/app
     links:
       - postgres
       - redis
@@ -31,7 +31,11 @@ services:
       - '8010:8010'
     environment:
       - RAILS_ENV=development
-      - DATABASE_URL=postgresql://portfolio:test_db_password@postgres:5432/portfolio?encoding=utf8&pool=5&timeout=5000\
+      # - DATABASE_URL=postgresql://portfolio:test_db_password@postgres:5432/portfolio?encoding=utf8&pool=5&timeout=5000
+      - DATABASE_HOST=postgres
+      - DATABASE_NAME=portfolio_development
+      - DATABASE_USERNAME=portfolio
+      - DATABASE_PASSWORD=test_db_password
       - CACHE_URL=redis://redis:6379/0
       - JOB_WORKER_URL=redis://redis:6379/0
 
@@ -42,6 +46,8 @@ services:
     links:
       - postgres
       - redis
+    environment:
+      - JOB_WORKER_URL=redis://redis:6379/0
 
   nginx:
     build:

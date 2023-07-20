@@ -1,3 +1,4 @@
+puts ENV.inspect
 sidekiq_config = { url: ENV['JOB_WORKER_URL'] }
 
 Sidekiq.configure_server do |config|

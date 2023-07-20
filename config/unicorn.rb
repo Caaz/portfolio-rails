@@ -1,7 +1,5 @@
 # Heavily inspired by GitLab:
 # https://github.com/gitlabhq/gitlabhq/blob/master/config/unicorn.rb.example
-require 'dotenv'
-Dotenv.load ".env"
 
 worker_processes 1
 listen 8080
