@@ -1,22 +1,19 @@
 import UIkit from "uikit";
-import Icons from "uikit-icons"
+import Icons from "uikit-icons";
+import { Artist } from "classes/artist";
 UIkit.use(Icons);
-
 window.addEventListener("load", (event) => {
     // Set up Canvas
     const canvas = document.getElementById("hero-canvas");
-    if (canvas !== null) {
-        const ctx = canvas.getContext("2d");
-        window.setInterval(() => {
-            // ctx.clearRect(0, 0, canvas.width, canvas.height);
-            ctx.fillStyle = "#6527BE";
-            if(canvas.height !== canvas.offsetHeight || canvas.width !== canvas.offsetWidth) {
-                canvas.width = canvas.offsetWidth;
-                canvas.height = canvas.offsetHeight;
-            }
-            ctx.fillRect(Math.random()*canvas.width, Math.random()*canvas.height, 10, 10);
-        }, 1000 / 30);
-    }
+    const art = (artist) => {
+        const {ctx, canvas, frame} = artist;
+        ctx.fillStyle = "#6527BE";
+        var width = 100*Math.sin(frame/30);
+        var height = 100*Math.sin(frame/30);
+        ctx.fillRect(canvas.width/2-width/2, canvas.height/2-height/2, width, height);
+    };
+    const artist = new Artist(canvas, art);
+    artist.begin()
     // Randomize tagline
     const taglines = document.querySelectorAll("#hero p");
     if (taglines.length > 0)
