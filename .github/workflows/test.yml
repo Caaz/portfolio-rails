@@ -16,4 +16,4 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Test
-        run: docker compose run -e "RAILS_MASTER_KEY=${{ secrets.RAILS_MASTER_KEY }}" -e "RAILS_ENV=test" portfolio bash -c "ls && ls node_modules && bundle exec rails db:create && bundle exec rails db:migrate && bundle exec rails test --verbose --pride"
+        run: docker compose run -e "RAILS_MASTER_KEY=${{ secrets.RAILS_MASTER_KEY }}" -e "RAILS_ENV=test" portfolio bash -c "yarn && bundle exec rails db:create && bundle exec rails db:migrate && bundle exec rails test --verbose --pride"
