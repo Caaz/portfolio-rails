@@ -1,5 +1,4 @@
-
-FROM ruby:3.2.2
+FROM ruby:3.2.2 AS base
 
 # Install Depedencies
 RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg -o /root/yarn-pubkey.gpg && \
@@ -22,8 +21,11 @@ COPY . .
 RUN bundle install && \
     yarn install
 
-RUN RAILS_ENV=production bundle exec rake assets:precompile
-
-# Start server
 EXPOSE 8080
+
+FROM base as development
+CMD bundle exec unicorn -c config/unicorn.rb
+
+FROM base AS production
+RUN RAILS_ENV=production bundle exec rake assets:precompile
 CMD bundle exec unicorn -c config/unicorn.rb
