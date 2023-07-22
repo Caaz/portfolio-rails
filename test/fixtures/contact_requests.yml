@@ -3,11 +3,11 @@
 one:
   name: MyString
   message: MyText
-  email: MyString
+  email: someEmail@someDomain.com
   phone: MyString
 
 two:
   name: MyString
-  message: MyText
+  email: someEmail@someDomain.com
   email: MyString
   phone: MyString

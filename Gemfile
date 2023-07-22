@@ -68,6 +68,7 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
+  gem "webmock", "~> 3.18"
 end
 group :production do
   gem "google-cloud-storage", "~> 1.31", ">= 1.31.1", require: false

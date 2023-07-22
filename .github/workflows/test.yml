@@ -1,0 +1,19 @@
+name: Test
+
+on:
+  workflow_dispatch:
+  pull_request:
+    branches: [ main ]
+
+env:
+  RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
+  STORAGE_CREDENTIALS : ${{ secrets.STORAGE_CREDENTIALS }}
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Test
+        run: docker compose run -e "RAILS_MASTER_KEY=${{ secrets.RAILS_MASTER_KEY }}" -e "RAILS_ENV=test" portfolio bash -c "yarn && bundle exec rails db:create && bundle exec rails db:migrate && bundle exec rails test --verbose --pride"
