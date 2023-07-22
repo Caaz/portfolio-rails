@@ -17,4 +17,4 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Run tests!
-        run: docker compose run portfolio rails test --verbose --pride
+        run: docker compose --build-arg="RAILS_MASTER_KEY=${{ secrets.RAILS_MASTER_KEY }}" run portfolio rails test --verbose --pride
