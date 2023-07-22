@@ -23,4 +23,4 @@ jobs:
       - name: Migrate Database
         run: docker compose run -e "RAILS_ENV=test" portfolio rails db:migrate
       - name: Test
-        run: docker compose run portfolio rails test --verbose --pride
+        run: docker compose run -e "RAILS_ENV=test"  portfolio rails test --verbose --pride
