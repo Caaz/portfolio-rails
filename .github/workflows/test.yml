@@ -16,7 +16,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Run tests!
-        run: -|
-          docker compose build --build-arg="RAILS_MASTER_KEY=${{ secrets.RAILS_MASTER_KEY }}"
-          docker compose run portfolio rails test --verbose --pride
+      - name: Build
+        run: docker compose build --build-arg="RAILS_MASTER_KEY=${{ secrets.RAILS_MASTER_KEY }}"
+      - name: Test
+        run: docker compose run portfolio rails test --verbose --pride
