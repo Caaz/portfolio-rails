@@ -18,7 +18,9 @@ jobs:
 
       - name: Build
         run: docker compose build --build-arg="RAILS_MASTER_KEY=${{ secrets.RAILS_MASTER_KEY }}"
-      - name: Set up DB
+      - name: Create Database
         run: docker compose run -e "RAILS_ENV=test" portfolio rails db:create
+      - name: Migrate Database
+        run: docker compose run -e "RAILS_ENV=test" portfolio rails db:migrate
       - name: Test
         run: docker compose run portfolio rails test --verbose --pride
