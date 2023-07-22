@@ -19,4 +19,4 @@ jobs:
       - name: Run tests!
         run: -|
           docker compose build --build-arg="RAILS_MASTER_KEY=${{ secrets.RAILS_MASTER_KEY }}" \
-          docker compose run -e portfolio rails test --verbose --pride
+          docker compose run portfolio rails test --verbose --pride
