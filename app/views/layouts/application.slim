@@ -1,7 +1,7 @@
 doctype html
 html
   head
-    title Portfolio
+    title=@title
     meta name="author" content="Daniel Cavazos"
     meta name="viewport" content="width=device-width, initial-scale=1"
     == csrf_meta_tags
@@ -11,6 +11,8 @@ html
     link href="https://fonts.googleapis.com/css2?family=Kanit:wght@700&display=swap" rel="stylesheet"
     == stylesheet_link_tag "application", media: "all"
     == javascript_importmap_tags
+    - @og.each do |property, value|
+      meta property="og:#{property}" content=value
   body
     #notice.uk-hidden==notice
     #alert.uk-hidden==alert
