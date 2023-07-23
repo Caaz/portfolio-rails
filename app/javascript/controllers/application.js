@@ -73,7 +73,6 @@ window.addEventListener("load", (event) => {
     // Setup notifications
     ["alert", "notice"].forEach(alert => {
         var alert = document.getElementById(alert);
-        console.log("Got an alert!", alert)
         if(alert.textContent.length > 0)
             UIkit.notification({
                 message: alert.textContent
