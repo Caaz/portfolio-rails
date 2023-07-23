@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
         @og = {
             title: "Daniel Cavazos",
             type: :website,
-            image: helpers.asset_url("social.svg"),
+            image: helpers.asset_url("social.png"),
             url: request.original_url
         }
     end
