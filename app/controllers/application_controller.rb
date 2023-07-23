@@ -6,7 +6,9 @@ class ApplicationController < ActionController::Base
             title: "Daniel Cavazos",
             type: :website,
             image: helpers.asset_url("social.png"),
-            url: request.original_url
+            url: request.original_url,
+            description: "Daniel Cavazos's Portfolio",
+            locale:"en_US"
         }
     end
 end

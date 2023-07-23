@@ -71,6 +71,7 @@ class PostsController < ApplicationController
       return unless @post
       @og[:title] = @post.title
       @og[:image] = helpers.url_for(@post.hero_image) if @post.hero_image.attached?
+      @og[:description] = @post.hook if @post.hook
       @og[:type] = "article"
       @og["article:puiblished_time"] = @post.published.iso8601
       @og["article:author"] = "Daniel Cavazos"
