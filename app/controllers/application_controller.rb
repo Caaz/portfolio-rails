@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
     protected
     def set_opengraph_values
         @og = {
-            title: "Portfolio",
+            title: "Daniel Cavazos",
             type: :website,
             image: helpers.asset_url("social.svg"),
             url: request.original_url

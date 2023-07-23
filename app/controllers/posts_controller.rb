@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[ show edit update destroy index ]
   before_action :authenticate_admin!, only: %i[ new edit update destroy create ]
+  before_action :set_opengraph_values
   # GET /posts
   def index
     if @post
@@ -63,6 +64,16 @@ class PostsController < ApplicationController
         return
       end
       @post = Post.with_rich_text_content_and_embeds.find(params[:id])
+    end
+
+    def set_opengraph_values
+      super
+      return unless @post
+      @og[:title] = @post.title
+      @og[:image] = helpers.url_for(@post.hero_image) if @post.hero_image.attached?
+      @og[:type] = "article"
+      @og["article:puiblished_time"] = @post.published.iso8601
+      @og["article:author"] = "Daniel Cavazos"
     end
 
     # Only allow a list of trusted parameters through.
