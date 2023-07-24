@@ -4,6 +4,16 @@ class PostsController < ApplicationController
   before_action :set_opengraph_values
   # GET /posts
   def index
+    respond_to do |format|
+      format.json do
+        @posts = Post.where(project:false).where(published: ..(DateTime.parse(params[:from])))
+        render json: @posts
+      end
+      format.html do
+        render
+      end
+    end
+
     if @post
       @posts = Post.select(:id, :title, :hook, :project).where.not(id:@post.id).where(project:false)
       unless admin_signed_in?
@@ -80,5 +90,9 @@ class PostsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def post_params
       params.require(:post).permit( :title, :content, :published, :hook, :project, :hero_image)
+    end
+    # Only allow a list of trusted parameters through.
+    def index_params
+      params.permit(:after)
     end
 end
