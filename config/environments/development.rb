@@ -71,5 +71,5 @@ Rails.application.configure do
   config.log_level = :debug
   config.web_console.permissions = '10.0.2.2'
   config.active_job.queue_adapter = :sidekiq
-  # config.assets.compile = false
+  config.assets.compile = true
 end

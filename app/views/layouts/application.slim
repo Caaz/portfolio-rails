@@ -13,7 +13,7 @@ html
     == javascript_importmap_tags
     - @og.each do |property, value|
       meta property="og:#{property}" content=value
-  body
+  body data={ controller: controller_name, action: action_name }
     #notice.uk-hidden==notice
     #alert.uk-hidden==alert
     nav#navbar

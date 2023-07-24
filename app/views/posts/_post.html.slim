@@ -1,7 +1,5 @@
-
-
-article.uk-card.uk-card-default id="#{dom_id post}"
-  .uk-card-header
+article.uk-card.uk-card-default.uk-margin id="#{dom_id post}"
+  .uk-card-header.uk-background
     h1.uk-card-title.uk-margin-remove= post.title
     .uk-flex.uk-flex-between
       = link_to post.published, post, class: admin_signed_in? ? post.is_published? ? "uk-text-success":"uk-text-danger":""
