@@ -1,7 +1,8 @@
 {
-  "license":"GPL-3.0-or-later",
+  "license": "GPL-3.0-or-later",
   "dependencies": {
     "@rails/actiontext": "^7.0.6",
+    "@rails/ujs": "^7.0.6",
     "trix": "^2.0.5",
     "uikit": "^3.16.22"
   }

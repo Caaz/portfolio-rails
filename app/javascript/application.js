@@ -16,8 +16,9 @@ window.addEventListener("load", (event) => {
     
     // Set up page specific js
     const controllers = { posts, application }
-    try { controllers[controller][action]() }
-    catch (error) { }
+    if (controllers.hasOwnProperty(controller) && controllers[controller].hasOwnProperty(action)) {
+        controllers[controller][action]()
+    }
 
     // Set up notifications
     ["alert", "notice"].forEach(alert => {

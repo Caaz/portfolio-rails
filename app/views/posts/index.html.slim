@@ -1,6 +1,2 @@
-- if @post
-  == render @post
-- if @posts
-  .uk-margin.uk-grid class="uk-child-width-1-3@m"
-    - @posts.each do |post|
-      == render partial: "post_small", locals: {post: post}
+#post-index
+#bottom-of-page(uk-scrollspy="repeat: true")

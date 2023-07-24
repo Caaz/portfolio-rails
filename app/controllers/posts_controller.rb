@@ -2,16 +2,21 @@ class PostsController < ApplicationController
   before_action :set_post, only: %i[ show edit update destroy index ]
   before_action :authenticate_admin!, only: %i[ new edit update destroy create ]
   before_action :set_opengraph_values
+  before_action :validate_index_params, only: :index
   # GET /posts
   def index
     respond_to do |format|
       format.json do
-        @posts = Post.where(project:false).where(published: ..(DateTime.parse(params[:from])))
-        render json: @posts
+        @limit = 5
+        @posts = Post.where(project:false).where(published: ..(DateTime.parse(params[:before]))).where.not(published: DateTime.parse(params[:before])).last(@limit)
+        render json: {
+          limit: @limit,
+          count: @posts.length,
+          oldest: @posts.last ? @posts.last.published : "",
+          html: render_to_string(partial:'post_index')
+        }
       end
-      format.html do
-        render
-      end
+      format.html
     end
 
     if @post
@@ -92,7 +97,9 @@ class PostsController < ApplicationController
       params.require(:post).permit( :title, :content, :published, :hook, :project, :hero_image)
     end
     # Only allow a list of trusted parameters through.
-    def index_params
-      params.permit(:after)
+    def validate_index_params
+      if request.format == :json
+        params.require(:before)
+      end
     end
 end
