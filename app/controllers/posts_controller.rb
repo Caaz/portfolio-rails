@@ -8,7 +8,7 @@ class PostsController < ApplicationController
     respond_to do |format|
       format.json do
         @limit = 5
-        @posts = Post.where(project:false).where(published: ..(DateTime.parse(params[:before]))).where.not(published: DateTime.parse(params[:before])).last(@limit)
+        @posts = Post.where(project:false).where(published: ..(DateTime.parse(params[:before]))).where.not(published: DateTime.parse(params[:before])).order(published: :desc).last(@limit)
         render json: {
           limit: @limit,
           count: @posts.length,
