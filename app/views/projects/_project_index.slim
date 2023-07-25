@@ -9,7 +9,7 @@
         span.uk-text-meta= post.hook
         
     .uk-flex-top.uk-background-fixed.uk-background-cover.uk-modal-container.uk-background-blend-hue id="#{dom_id post}_modal" uk-modal=true style="background-image: url(#{url_for post.hero_image});"
-      .uk-modal-dialog.uk-modal-body.uk-overflow-auto id="#{dom_id post}"
+      .uk-modal-dialog.uk-modal-body uk-overflow-auto=true id="#{dom_id post}"
         button.uk-modal-close-default type="button" uk-close=true
         .uk-card-header
           h1.uk-margin-remove= post.title
