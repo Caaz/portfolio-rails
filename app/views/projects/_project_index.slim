@@ -1,0 +1,22 @@
+- @projects.each do |post|
+  div(style="margin-top:15px;"): a.uk-link-reset href="##{dom_id post}_modal" uk-toggle=true
+    .uk-height-1-1.uk-card.uk-card-secondary.uk-card-hover.uk-card-small id="#{dom_id post}"
+      .uk-inline
+      - if post.hero_image.attached?
+          img src=url_for(post.hero_image)
+      .uk-overlay.uk-overlay-primary.uk-position-bottom
+        h4.uk-margin-remove= post.title
+        span.uk-text-meta= post.hook
+        
+    .uk-flex-top.uk-background-fixed.uk-background-cover.uk-modal-container.uk-background-blend-hue id="#{dom_id post}_modal" uk-modal=true style="background-image: url(#{url_for post.hero_image});"
+      .uk-modal-dialog.uk-modal-body uk-overflow-auto=true id="#{dom_id post}"
+        button.uk-modal-close-default type="button" uk-close=true
+        .uk-card-header
+          h1.uk-margin-remove= post.title
+          .uk-flex
+            = link_to post.published, post, class: admin_signed_in? ? post.is_published? ? "uk-text-success":"uk-text-danger":""
+            - if admin_signed_in?
+              .uk-button-group
+                = link_to "", edit_post_path(post), class: "uk-button uk-button-small uk-button-default", "uk-icon": "file-edit"
+                = button_to "", post, method: :delete, class: "uk-button uk-button-small uk-button-danger", "uk-icon": "close"
+        .uk-modal-body= post.content

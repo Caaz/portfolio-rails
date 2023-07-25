@@ -37,4 +37,8 @@ html
         - if admin_signed_in?
           = link_to "Logout", destroy_admin_session_path
         - else 
-          = link_to('Login', new_admin_session_path)
+          button uk-toggle="#login" type="button" class="uk-button uk-button-text" Login
+          #login uk-modal=true 
+            button.uk-modal-close-default type="button" uk-close=true
+            .uk-modal-dialog
+              = render partial: "devise/sessions/new", locals: { resource: Admin.new, resource_name: :admin }
