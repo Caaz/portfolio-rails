@@ -1,10 +1,12 @@
-article.uk-card.uk-card-default.uk-margin uk-scrollspy="cls:uk-animation-slide-bottom" id="#{dom_id post}" data={title:post.title}
-  .uk-card-header.uk-background
-    h1.uk-card-title.uk-margin-remove= post.title
+article.uk-card uk-scrollspy="cls:uk-animation-slide-bottom" id="#{dom_id post}" data={title:post.title}
+  .uk-card-header.uk-background-secondary.uk-light.uk-box-shadow-large.uk-position-z-index uk-sticky="offset: 40px; end:true": .uk-container.uk-container-xlarge
     .uk-flex.uk-flex-between
-      = link_to post.published, post, class: admin_signed_in? ? post.is_published? ? "uk-text-success":"uk-text-danger":""
-      - if admin_signed_in?
-        .uk-button-group
-          = link_to "", edit_post_path(post), class: "uk-button uk-button-small uk-button-default", "uk-icon": "file-edit"
-          = button_to "", post, method: :delete, class: "uk-button uk-button-small uk-button-danger", "uk-icon": "close"
-  .uk-card-body= post.content
+      div
+        h1.uk-card-title.uk-margin-remove.uk-heading-small= post.title
+        = link_to post.published, post, class: admin_signed_in? ? post.is_published? ? "uk-text-success":"uk-text-danger":""
+      div: .uk-button-group
+        = link_to "", post, class: "uk-button-text uk-padding-small", "uk-icon": "icon:link; ratio:1.5"
+        - if admin_signed_in?
+          = link_to "", edit_post_path(post), class: "uk-button-text uk-padding-small", "uk-icon": "icon:file-edit; ratio:1.1"
+          = button_to "", post, method: :delete, class: "uk-button-text uk-padding-small uk-text-danger", "uk-icon": "icon:close; ratio:1.5"
+  .uk-card-body: .uk-container.uk-container-xlarge= post.content

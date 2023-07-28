@@ -16,7 +16,7 @@ html
   body data={ controller: controller_name, action: action_name }
     #notice.uk-hidden==notice
     #alert.uk-hidden==alert
-    nav#navbar
+    nav#navbar.uk-box-shadow-large uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky"
       nav.uk-container.uk-container-xlarge.uk-navbar-container(uk-navbar)
         .uk-navbar-left.uk-margin-left
           ul.uk-navbar-nav
@@ -27,12 +27,11 @@ html
               li(style=" padding-top:1px")= link_to "", contact_requests_path, "uk-icon":"icon:mail; ratio:.8"
         .uk-navbar-right.uk-margin-right
           ul.uk-navbar-nav
-            li= link_to "Blog", posts_path
             li= link_to "Projects", projects_path
             li= link_to "Contact", new_contact_request_path
-    main.uk-container.uk-container-xlarge.uk-margin-top(uk-height-viewport="expand:true")
+    main(uk-height-viewport="expand:true")
       == yield
-    footer.uk-background-muted.uk-expand.uk-margin-top
+    footer.uk-background-muted.uk-expand
       .uk-container.uk-container-xlarge.uk-padding.uk-link-muted
         - if admin_signed_in?
           = link_to "Logout", destroy_admin_session_path
