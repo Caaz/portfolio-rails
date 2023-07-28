@@ -1,7 +1,9 @@
 //= require "actiontext.css"
-
+@use "sass:color";
 $navbar-nav-item-height: 40px;
 $global-primary-background: #6527BE;
+$global-muted-background: #EEE;
+// $global-secondary-background: #333;
 @import "uikit/src/scss/variables-theme.scss";
 @import "uikit/src/scss/mixins-theme.scss";
 @import "uikit/src/scss/uikit-theme.scss";

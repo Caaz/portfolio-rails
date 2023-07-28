@@ -1,30 +1,44 @@
-#hero.uk-grid class="uk-child-width-1-2@m"
-    div: .uk-padding-large.uk-text-center
+.uk-card.uk-card-default: .uk-container.uk-container-xlarge: #hero.uk-grid class="uk-child-width-1-2@m"
+    #introduction: .uk-padding-large.uk-text-center
         h1.uk-heading-xlarge.uk-text-primary.uk-text-bold Daniel
         h1.uk-heading-medium.uk-text-secondary.uk-heading-line: span Cavazos
         p.uk-hidden Stuck in Fresno, California. Please help, it's hot.
         p.uk-hidden Jack of all trades, master of literally nothing. Except maybe regex.
         p.uk-hidden Don't make me go back to retail!
         button.uk-button.uk-button-primary.uk-button-large Hire Me
-    canvas#hero-canvas uk-height-match="#hero>div:first-child"
+    div.uk-height-large.uk-overflow-hidden
+        canvas.uk-width-1-1.uk-height-1-1#hero-canvas
 
+.uk-background-muted.uk-padding.uk-padding-remove-left.uk-padding-remove-right: .uk-container.uk-container-xlarge
+    .uk-padding-small.uk-grid-match class="uk-child-width-1-2@m" uk-grid=true uk-scrollspy="cls:uk-animation-fade; target: div>.uk-card;  delay: 500"
+        div: .uk-card.uk-card-body.uk-card-default.uk-flex.uk-flex-between.uk-flex-column uk-scrollspy-class="uk-animation-slide-left"
+            h1.uk-heading.uk-text-primary Web Developer
+            p Versatile full-stack web developer skilled in Python, Django, Ruby, and various other languages. Builds robust web applications, prioritizes optimization and performance.
+        div: .uk-card.uk-card-body.uk-card-default.uk-flex.uk-flex-between.uk-flex-column uk-scrollspy-class="uk-animation-slide-right"
+            h1.uk-heading.uk-text-primary CAD Modeler
+            p Experienced in CAD Query and adept with CAD Sketcher in Blender. Creates precise models with attention to detail. Explores latest Blender features for innovative designs.
+        div: .uk-card.uk-card-body.uk-card-default.uk-flex.uk-flex-between.uk-flex-column uk-scrollspy-class="uk-animation-slide-left"
+            h1.uk-heading.uk-text-primary Game Developer
+            p Proficient with Pico-8 and experienced in Godot for larger projects. Deep understanding of game mechanics and level design. Transforms ideas into captivating gaming experiences.
+        div: .uk-card.uk-card-body.uk-card-default.uk-flex.uk-flex-between.uk-flex-column uk-scrollspy-class="uk-animation-slide-right"
+            h1.uk-heading.uk-text-primary Writer
+            p I am a passionate writer with a keen interest in various topics. This website serves as my blog, where I share my thoughts, insights, and experiences. With a knack for clear and concise communication, I excel at explaining technical concepts in a way that is easily understandable to a broader audience.
+        div: .uk-card.uk-card-body.uk-card-default.uk-flex.uk-flex-between.uk-flex-column uk-scrollspy-class="uk-animation-slide-left"
+            h1.uk-heading.uk-text-primary Tinkerer
+            p Skilled in circuit design, soldering, and art. Transforms ideas into unique devices and captivating artwork, blending technology and craftsmanship. Constantly pushing boundaries and exploring new possibilities.
+        div: .uk-card.uk-card-body.uk-card-default.uk-flex.uk-flex-between.uk-flex-column uk-scrollspy-class="uk-animation-slide-right"
+            h1.uk-heading.uk-text-primary Lifelong Learner
+            p Enthusiastic and inquisitive knowledge-seeker. Embraces a lifelong pursuit of learning and personal growth. Adaptable and intellectually curious, always expanding horizons and acquiring new skills.
 
-.uk-grid class="uk-child-width-1-3@m" uk-scrollspy="target: > div; cls: uk-animation-fade; delay: 500"
-    div: .uk-card.uk-card-body
-        h1.uk-heading.uk-text-primary Web Developer
-        p Versatile full-stack web developer skilled in Python, Django, Ruby, and various other languages. Builds robust web applications, prioritizes optimization and performance.
-    div: .uk-card.uk-card-body
-        h1.uk-heading.uk-text-primary CAD Modeler
-        p Experienced in CAD Query and adept with CAD Sketcher in Blender. Creates precise models with attention to detail. Explores latest Blender features for innovative designs.
-    div: .uk-card.uk-card-body
-        h1.uk-heading.uk-text-primary Game Developer
-        p Proficient with Pico-8 and experienced in Godot for larger projects. Deep understanding of game mechanics and level design. Transforms ideas into captivating gaming experiences.
-    div: .uk-card.uk-card-body
-        h1.uk-heading.uk-text-primary Salesman
-        p With a focus on understanding customers' needs, I consistently deliver exceptional experiences. By leveraging my sales expertise, I ensure customers find exactly what they need, exceeding their expectations and fostering long-lasting relationships.
-    div: .uk-card.uk-card-body
-        h1.uk-heading.uk-text-primary Tinkerer
-        p Skilled in circuit design, soldering, and art. Transforms ideas into unique devices and captivating artwork, blending technology and craftsmanship. Constantly pushing boundaries and exploring new possibilities.
-    div: .uk-card.uk-card-body
-        h1.uk-heading.uk-text-primary Lifelong Learner
-        p Enthusiastic and inquisitive knowledge-seeker. Embraces a lifelong pursuit of learning and personal growth. Adaptable and intellectually curious, always expanding horizons and acquiring new skills.
+/ .uk-card.uk-card-default
+    / h1.uk-heading-medium.uk-text-center Not convinced? Here's a blog
+
+#index
+#bottom
+#error
+
+    / <h1 class="uk-heading uk-text-primary">Writer</h1>
+        <p>I am a passionate writer with a keen interest in various topics. This website serves as my blog, where I share my thoughts, insights, and experiences with my readers.</p>
+        <p>With a knack for clear and concise communication, I excel at explaining technical concepts in a way that is easily understandable to a broader audience. Whether it's breaking down complex ideas or delving into intricate details, I strive to make the content engaging and accessible for everyone.</p>
+        <p>Through my writing, I aim to inspire, educate, and entertain my readers, fostering a sense of curiosity and enthusiasm for the subjects I cover. As I delve into various topics, I consistently maintain a high standard of quality and ensure that each piece is thoroughly researched and well-crafted.</p>
+        <p>Thank you for joining me on this writing journey. Together, we'll explore the wonders of knowledge and unravel the beauty of learning.</p>

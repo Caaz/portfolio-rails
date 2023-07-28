@@ -13,7 +13,6 @@ function ajax_content(endpoint, bottomSelector='#bottom', postContainerSelector=
         data: new URLSearchParams({ 'before': oldest }).toString(),
         type: "get",
         success: data => {
-            console.log(data)
             postContainer.innerHTML += data.html;
             oldest = data.oldest;
             if (data.count != data.limit)
