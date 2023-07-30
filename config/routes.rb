@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :contact, controller: "contact_requests", as: "contact_requests", only: [:new, :index, :destroy]
+  resources :contact, controller: "contact_requests", as: "contact_requests", only: [:index, :destroy]
   resources :posts
   resources :projects, only: [:index]
   devise_for :admins, controllers: { registrations: "registrations"}

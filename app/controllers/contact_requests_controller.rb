@@ -27,12 +27,11 @@ class ContactRequestsController < ApplicationController
 
     if @contact_request.save
       send_webhook
-      redirect_to new_contact_request_url, notice: "Contact request sent!"
+      redirect_to root_url, notice: "Contact request sent!"
     else
       flash.alert = "Failed to send contact request!"
-      render "application/home"
+      render "application/home", status: :unprocessable_entity
       flash.discard :alert
-      # render :new, status: :unprocessable_entity
     end
   end
 
@@ -59,7 +58,7 @@ class ContactRequestsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def contact_request_params
-      params.require(:contact_request).permit(:name, :message, :email, :phone)
+      params.require(:contact_request).permit(:name, :message, :email)
     end
 
     def send_webhook

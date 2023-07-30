@@ -4,10 +4,18 @@ one:
   name: MyString
   message: MyText
   email: someEmail@someDomain.com
-  phone: MyString
 
 two:
   name: MyString
   email: someEmail@someDomain.com
   email: MyString
-  phone: MyString
+
+failure_email:
+  name: MyString
+  email: aaaa
+  email: MyString
+
+failure:
+  name: null
+  email: null
+  email: null
