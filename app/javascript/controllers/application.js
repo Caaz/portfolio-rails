@@ -1,5 +1,4 @@
 import { Artist } from "classes/artist"
-import Rails from "@rails/ujs"
 import UIkit from "uikit"
 import ajax_content from "helpers/ajax_content"
 

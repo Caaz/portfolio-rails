@@ -1,6 +1,10 @@
 class ApplicationController < ActionController::Base
     before_action :set_opengraph_values
+    before_action :set_contact_request, only: :home
     protected
+    def set_contact_request
+        @contact_request = ContactRequest.new
+    end
     def set_opengraph_values
         @og = {
             title: "Daniel Cavazos",

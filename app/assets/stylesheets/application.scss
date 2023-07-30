@@ -7,6 +7,7 @@ $global-muted-background: #EEE;
 @import "uikit/src/scss/variables-theme.scss";
 @import "uikit/src/scss/mixins-theme.scss";
 @import "uikit/src/scss/uikit-theme.scss";
+$lighter-secondary: adjust-color($global-secondary-background, $lightness:5%);
 
 
 #navbar {
@@ -17,7 +18,11 @@ $global-muted-background: #EEE;
     }
 }
 
-#hero {
+#introduction {
+    h1:first-child, a, a:before {
+        color:$background-primary-background!important;
+        border-bottom-color:$background-primary-background!important;
+    }
     h1 {
         font-family: 'Kanit', sans-serif;
         line-height:.7;
@@ -28,3 +33,16 @@ $global-muted-background: #EEE;
     min-height:20vh;
 }
 .button_to { display:inline;}
+
+.uk-light {
+    .uk-background-muted {
+        background-color:$lighter-secondary;
+    }
+    .uk-card-default, .uk-modal-dialog {
+        background-color:$global-secondary-background;
+        color:white;
+    }
+}
+* {
+    transition: background-color .5s, color .2s;
+}

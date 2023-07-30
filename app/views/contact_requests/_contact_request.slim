@@ -1,8 +1,6 @@
 tr
   td= contact_request.name
-  td= contact_request.phone
   td= contact_request.email
   td= contact_request.message
   td
-    a.uk-icon-link href=edit_contact_request_url(contact_request) uk-icon="file-edit"
     = button_to "", contact_request, method: :delete, class: "uk-icon-link uk-display-inline", "uk-icon": "close"

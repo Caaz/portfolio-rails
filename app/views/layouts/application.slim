@@ -16,28 +16,37 @@ html
   body data={ controller: controller_name, action: action_name }
     #notice.uk-hidden==notice
     #alert.uk-hidden==alert
-    nav#navbar.uk-box-shadow-large uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky"
+    #offcanvas uk-offcanvas="overlay: true; mode:push"
+      .uk-offcanvas-bar
+        button.uk-offcanvas-close type="button" uk-close=true
+        #offcanvas-nav.uk-nav.uk-nav-primary
+    #login uk-modal=true 
+      button.uk-modal-close-default type="button" uk-close=true
+      .uk-modal-dialog
+        = render partial: "devise/sessions/new", locals: { resource: Admin.new, resource_name: :admin }
+    #navbar.uk-box-shadow-large uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky"
       nav.uk-container.uk-container-xlarge.uk-navbar-container(uk-navbar)
         .uk-navbar-left.uk-margin-left
           ul.uk-navbar-nav
             li: a href="/"
-              span Daniel Cavazos
-            - if admin_signed_in?
-              li(style=" padding-top:1px")= link_to "", new_post_path, "uk-icon":"icon:plus-circle; ratio:.8"
-              li(style=" padding-top:1px")= link_to "", contact_requests_path, "uk-icon":"icon:mail; ratio:.8"
+              span uk-icon="home"
         .uk-navbar-right.uk-margin-right
-          ul.uk-navbar-nav
-            li= link_to "Projects", projects_path
-            li= link_to "Contact", new_contact_request_path
-    main(uk-height-viewport="expand:true")
+          ul.uk-navbar-nav class="uk-hidden@m": li: a.uk-button-text uk-toggle="target: #offcanvas;" type="button" uk-icon="icon:menu"
+          ul.uk-navbar-nav class="uk-visible@m"
+            li= link_to "", projects_path, class:"uk-button-text", "uk-icon":"thumbnails", "uk-tooltip":"title:Projects;pos:bottom"
+            li: a.uk-button-text uk-toggle="target: body; cls: uk-light uk-background-secondary" type="button" uk-icon="icon:eye" uk-tooltip="title:Dark Mode;pos:bottom"
+            li= link_to "", ("#{controller_name}##{action_name}" == "application#home") ? "#contact" : root_path+"#contact", "uk-scroll":true, class:"uk-button-text", "uk-icon": "mail", "uk-tooltip":"title:Contact;pos:bottom"
+            - if admin_signed_in?
+              li= link_to "", contact_requests_path, "uk-icon":"icon:bell", class: "uk-button-text", "uk-tooltip":"title:Requests;pos:bottom"
+              li= link_to "", new_post_path, "uk-icon":"icon:plus-circle; ratio:.9", class: "uk-button-text", "uk-tooltip":"title:New Post;pos:bottom"
+              li= link_to "", destroy_admin_session_path, "uk-icon":"sign-out", class:"uk-button-text", "uk-tooltip":"title:Sign out;pos:bottom"
+            - else
+              li: a uk-toggle="#login" class="uk-button uk-button-text" uk-icon="sign-in" uk-tooltip="title:Sign In;pos:bottom"
+    main uk-height-viewport="expand:true"
       == yield
-    footer.uk-background-muted.uk-expand
+    / footer.uk-background-muted.uk-expand
       .uk-container.uk-container-xlarge.uk-padding.uk-link-muted
         - if admin_signed_in?
           = link_to "Logout", destroy_admin_session_path
         - else 
           button uk-toggle="#login" type="button" class="uk-button uk-button-text" Login
-          #login uk-modal=true 
-            button.uk-modal-close-default type="button" uk-close=true
-            .uk-modal-dialog
-              = render partial: "devise/sessions/new", locals: { resource: Admin.new, resource_name: :admin }
