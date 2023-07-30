@@ -1,10 +1,4 @@
-= form_with(model: @contact_request) do |form|
-  - if @contact_request.errors.any?
-    div style="color: red"
-      h2 = "#{pluralize(@contact_request.errors.count, "error")} prohibited this contact_request from being saved:"
-      ul
-        - @contact_request.errors.each do |error|
-          li = error.full_message
+= form_with(model: @contact_request, url: root_url) do |form|
   .uk-grid class="uk-child-width-1-1"
     .uk-margin
       .uk-inline.uk-width-1-1
@@ -14,7 +8,7 @@
       .uk-inline.uk-width-1-1
         span.uk-form-icon uk-icon="mail"
         = form.email_field :email, class:"uk-input", placeholder: "you@email.com"
-    .uk-width-1-1.uk-margin= form.rich_text_area :message, class:"content uk-textarea", placeholder: "A brief description of the reason for reaching out"
+    .uk-width-1-1.uk-margin= form.text_area :message, class:"content uk-textarea", placeholder: "A brief description of the reason for reaching out"
 
 
   .uk-width-1-1

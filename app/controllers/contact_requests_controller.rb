@@ -3,7 +3,6 @@ require "net/http"
 class ContactRequestsController < ApplicationController
   before_action :set_contact_request, only: %i[ show edit update destroy ]
   before_action :authenticate_admin!, only: %i[ index sshow edit update destroy ]
-  after_action :send_webhook, only: :create
   # GET /contact_requests
   def index
     @contact_requests = ContactRequest.all.reverse
@@ -27,9 +26,12 @@ class ContactRequestsController < ApplicationController
     @contact_request = ContactRequest.new(contact_request_params)
 
     if @contact_request.save
-      redirect_to new_contact_request_url, notice: "Contact request sent!"
+      send_webhook
+      redirect_to root_url, notice: "Contact request sent!"
     else
-      render :new, status: :unprocessable_entity
+      flash.alert = "Failed to send contact request!"
+      render "application/home", status: :unprocessable_entity
+      flash.discard :alert
     end
   end
 
@@ -56,7 +58,7 @@ class ContactRequestsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def contact_request_params
-      params.require(:contact_request).permit(:name, :message, :email, :phone)
+      params.require(:contact_request).permit(:name, :message, :email)
     end
 
     def send_webhook
