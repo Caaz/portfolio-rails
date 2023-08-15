@@ -37,6 +37,7 @@ html
             li: a.uk-button-text uk-toggle="target: body; cls: uk-light uk-background-secondary" type="button" uk-icon="icon:eye" uk-tooltip="title:Dark Mode;pos:bottom"
             li= link_to "", ("#{controller_name}##{action_name}" == "application#home") ? "#contact" : root_path+"#contact", "uk-scroll":true, class:"uk-button-text", "uk-icon": "mail", "uk-tooltip":"title:Contact;pos:bottom"
             - if admin_signed_in?
+              li= link_to "", links_path, "uk-icon":"icon:link", class: "uk-button-text", "uk-tooltip":"title:Links;pos:bottom"
               li= link_to "", contact_requests_path, "uk-icon":"icon:bell", class: "uk-button-text", "uk-tooltip":"title:Requests;pos:bottom"
               li= link_to "", new_post_path, "uk-icon":"icon:plus-circle; ratio:.9", class: "uk-button-text", "uk-tooltip":"title:New Post;pos:bottom"
               li= link_to "", destroy_admin_session_path, "uk-icon":"sign-out", class:"uk-button-text", "uk-tooltip":"title:Sign out;pos:bottom"

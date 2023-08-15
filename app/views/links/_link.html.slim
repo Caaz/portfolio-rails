@@ -1,0 +1,7 @@
+tr
+  td= link.name
+  td= link.url
+  td= link.hits
+  td
+    = link_to "", edit_link_path(link), class: "uk-icon-link uk-display-inline", "uk-icon": "file-edit"
+    = button_to "", link, method: :delete, class: "uk-icon-link uk-display-inline", "uk-icon": "close"
