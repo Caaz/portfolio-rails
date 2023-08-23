@@ -30,6 +30,7 @@ class LinksControllerTest < ActionDispatch::IntegrationTest
   test "should show link" do
     get link_url(@link)
     assert_response :redirect
+    assert_redirected_to @link.url
   end
 
   test "should get edit" do
