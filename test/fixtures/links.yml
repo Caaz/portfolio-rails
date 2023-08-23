@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  url: https://localhost/
+  name: test_one
+  hits: 1
+
+two:
+  url: https://localhost:8020/
+  name: test_two
+  hits: 1

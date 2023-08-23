@@ -2,7 +2,7 @@ require "net/http"
 
 class ContactRequestsController < ApplicationController
   before_action :set_contact_request, only: %i[ show edit update destroy ]
-  before_action :authenticate_admin!, only: %i[ index sshow edit update destroy ]
+  before_action :authenticate_admin!, only: %i[ index show edit update destroy ]
   # GET /contact_requests
   def index
     @contact_requests = ContactRequest.all.reverse

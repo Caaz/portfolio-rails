@@ -1,0 +1,15 @@
+table.uk-table.uk-table-small.uk-table-divider.uk-card.uk-card-default
+  thead.uk-background-secondary
+    tr
+      th.uk-table-shrink Name
+      th.uk-table-shrink URL
+      th.uk-table-expand Hits
+      th.uk-table-shrink Control
+  - @links.each do |link|
+    == render link
+
+.uk-flex.uk-flex-center.uk-flex-middle
+  button.uk-button.uk-button-primary uk-toggle="target: #new-link" New Link
+#new-link uk-modal=true
+  .uk-modal-dialog.uk-modal-body
+    = render partial:"form"
