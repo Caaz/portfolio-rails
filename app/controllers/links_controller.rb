@@ -1,6 +1,6 @@
 class LinksController < ApplicationController
   before_action :set_link, only: %i[ show edit update destroy ]
-  before_action :authenticate_admin!, only: %i[ index show edit update destroy ]
+  before_action :authenticate_admin!, only: %i[ index edit update destroy ]
 
   # GET /links
   def index
